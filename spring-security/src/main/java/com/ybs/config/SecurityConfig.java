@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * SecurityConfig
@@ -28,14 +29,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/level1/**").hasRole("vip1")
                 .antMatchers("/level2/**").hasRole("vip2")
-                .antMatchers("/level2/**").hasRole("vip3");
+                .antMatchers("/level3/**").hasRole("vip3");
 
         // 没有权限默认到登录页面,开启登录页面
         http.formLogin();
+
+        // 注销
+        // 防止网络攻击： get pst
+        //
+        http.csrf().disable();
+        http.logout().logoutSuccessUrl("/");
     }
 
     /**
      * 认证
+     * 密码编码：PasswordEncode
      * @param auth
      * @throws Exception
      */
@@ -44,12 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // 这些数据正常从数据库中读取
 
-        auth.inMemoryAuthentication()
-                .withUser("paulson").password("mima").roles("vip2", "vip3")
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("paulson").password(new BCryptPasswordEncoder().encode("mima")).roles("vip2", "vip3")
                 .and()
-                .withUser("root").password("mima").roles("vip1", "vip2", "vip3")
+                .withUser("root").password(new BCryptPasswordEncoder().encode("mima")).roles("vip1", "vip2", "vip3")
                 .and()
-                .withUser("guest").password("mima").roles("vip1");
+                .withUser("guest").password(new BCryptPasswordEncoder().encode("mima")).roles("vip1");
 
     }
 

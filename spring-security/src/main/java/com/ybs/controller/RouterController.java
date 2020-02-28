@@ -24,6 +24,8 @@ public class RouterController {
         return "views/login";
     }
 
+
+
     @RequestMapping("/level1/{id}")
     public String level1(@PathVariable int id){
         return "views/level1/" + id;
