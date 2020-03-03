@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ybs</groupId>
-    <artifactId>spring-zk-dubbo-provider-server</artifactId>
+    <artifactId>spring-zk-dubbo-consumer-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-zk-dubbo-provider-server</name>
+    <name>spring-zk-dubbo-consumer-server</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -23,12 +23,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- Dubbo Spring Boot Starter -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>2.7.3</version>
         </dependency>
+        <!--zookeeper-->
+        <!-- https://mvnrepository.com/artifact/com.github.sgroschupf/zkclient -->
         <dependency>
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
