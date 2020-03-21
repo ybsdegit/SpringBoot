@@ -1,6 +1,10 @@
 server:
   port: 8080
+
+
 spring:
+  profiles:
+    active: dev
   datasource:
     url: jdbc:mysql://192.168.2.136:3306/mybatis-plus?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
