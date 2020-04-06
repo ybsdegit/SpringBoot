@@ -1,0 +1,22 @@
+server:
+  port: 8990
+
+spring:
+  rabbitmq:
+    host: 192.168.2.140
+    username: guest
+    password: guest
+    virtual-host: /
+
+# 配置交换机
+order.fanout.exchange: order.fanout.ex
+order.direct.exchange: order.direct.ex
+
+# 队列
+order.fanout.log.queue: order.fanout.log.queue
+order.fanout.email.queue: order.fanout.email.queue
+
+# 队列
+order.direct.log.queue: order.direct.log.queue
+order.direct.email.queue: order.direct.email.queue
+order.direct.wechat.queue: order.direct.wechat.queue
