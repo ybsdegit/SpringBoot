@@ -42,12 +42,7 @@ public class SendSms {
         SendSms.templateCode = templateCode;
     }
 
-    /*private static final String AccessKeyId = "LTAI4FibViPiJ6qK6916PHkp";
-    private static final String AccessKeySecret = "M2tK5gOOjgxZQ3fqKp8yrulKiuks24";
-    private static final String signName = "鲍森问答论坛";
-    private static final String templateCode = "SMS_181866518";*/
-
-
+    
     public static boolean sendCode(String telPhone, String code){
         DefaultProfile profile = DefaultProfile.getProfile("default", AccessKeyId, AccessKeySecret);
         IAcsClient client = new DefaultAcsClient(profile);
