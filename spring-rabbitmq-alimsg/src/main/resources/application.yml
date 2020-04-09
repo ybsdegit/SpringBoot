@@ -9,7 +9,7 @@ spring:
 
 # 配置
 ali:
-  AccessKeyId: LTAI4FibViPiJ6qK6916PHkp
-  AccessKeySecret: M2tK5gOOjgxZQ3fqKp8yrulKiuks24
-  signName: 鲍森问答论坛
-  templateCode: SMS_181866518
+  AccessKeyId: ****
+  AccessKeySecret: ****
+  signName: ****
+  templateCode: ****
