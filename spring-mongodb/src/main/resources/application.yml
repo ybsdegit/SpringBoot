@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      host: 192.168.2.140
+      database: studentdb
