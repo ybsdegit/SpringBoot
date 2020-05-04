@@ -1,6 +1,7 @@
 package com.ybs.alisms.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
@@ -54,6 +55,8 @@ public class SendSmsImpl implements SendSms {
         try {
             CommonResponse response = client.getCommonResponse(request);
             System.out.println(response.getData());
+            JSONObject data = JSON.parseObject(response.getData());
+            String message = data.getString("Message");
             return response.getHttpResponse().isSuccess();
         } catch (ServerException e) {
             e.printStackTrace();
