@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+spring:
+  redis:
+    host: 112.126.101.188
+    port: 6379
+
+# 配置
+ali:
+  AccessKeyId: ****
+  AccessKeySecret: ****
+  signName: ****
+  templateCode: ****
+
+
