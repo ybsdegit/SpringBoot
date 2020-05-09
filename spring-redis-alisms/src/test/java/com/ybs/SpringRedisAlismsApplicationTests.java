@@ -32,12 +32,12 @@ class SpringRedisAlismsApplicationTests {
 //        private static String signName;
 //        private static String templateCode;
 
-        String telPhone = "18810911636";
-        String signName = "鲍森问答论坛";
-        String templateCode = "SMS_181866518";
+        String telPhone = "**";
+        String signName = "**";
+        String templateCode = "**";
         String code = "2233";
 
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4GGUtAc84qYpfHfVeWjY", "xySc8SZKTtt7aZGFIJEDjnIOXKudgj");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "**", "**");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();
