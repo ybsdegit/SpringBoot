@@ -1,6 +1,5 @@
 package com.ybs.service;
 
-import com.ybs.utils.SendSms;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,9 +27,6 @@ public class MessageService {
     }
 
 
-
-
-
     public void sendMessage() {
         rabbitTemplate.convertAndSend("sendMessage", "18810911636");
     }
@@ -46,4 +42,26 @@ public class MessageService {
         map.put("code", code);
         rabbitTemplate.convertAndSend("sendMessage", map);
     }
+
+    /**
+     * 单播（点对点）
+     */
+    public void sendMsg1() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("msg", "这是第一个消息");
+        map.put("code", "code");
+        rabbitTemplate.convertAndSend("exchange.direct", "ybs_direct", map);
+    }
+
+    /**
+     * 广播（点对点）
+     */
+    public void sendMsg2() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("msg", "这是第一个消息");
+        map.put("code", "code");
+        rabbitTemplate.convertAndSend("exchange.fanout", "", map);
+    }
+
+
 }

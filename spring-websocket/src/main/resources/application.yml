@@ -1,0 +1,3 @@
+# Springboot 所有的配置类都有一个自动配置类
+server:
+  port: 8888
