@@ -32,7 +32,7 @@ public class DevOpsService {
         if (webSocketServer == null) {
             throw new Exception("请建立长链接!");
         }
-        String cmd = "cd /home/paulson/ybs; " +
+        String cmd = "cd /home/pau                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           lson/ybs; " +
                 "tail -fn300 marklog.log";
         ExecuteShellUtil.executeShellAndSendWebSocket(taskId, webSocketServer, "192.168.2.156", "root", "mima", cmd);
     }
